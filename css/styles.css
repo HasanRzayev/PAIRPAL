@@ -1,0 +1,123 @@
+/* Ümumi Tərtibat */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #ECEBDE;
+    color: #333;
+}
+
+header, footer {
+    background-color: #A59D84;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+footer p {
+    margin: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    background: #D7D3BF;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.menu {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #C1BAA1;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #A59D84;
+}
+
+.content {
+    margin-top: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+#random-test-section {
+    background: #fff;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/* Show All Tərtibatı */
+#show-all-section {
+    background: #fff;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+#show-all-section .pair {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #C1BAA1;
+    border-radius: 5px;
+    background: #ECEBDE;
+}
+
+#show-all-section .pair span {
+    display: block;
+    font-size: 16px;
+    color: #333;
+}
+
+/* Modal Tərtibatı */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+}
+
+.close-btn {
+    float: right;
+    font-size: 1.5em;
+    cursor: pointer;
+    color: #A59D84;
+}
+
+.close-btn:hover {
+    color: #C1BAA1;
+}

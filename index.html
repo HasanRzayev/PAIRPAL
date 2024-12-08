@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dictionary Application</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Pairpal Dictionary</h1>
+    </header>
+    <div class="container">
+        <div class="menu">
+            <button onclick="showPopup('add')">Add</button>
+            <button onclick="showPopup('remove')">Remove</button>
+            <button onclick="clearDictionary()">Clear</button>
+            <button onclick="showRandomTest()">Random Test</button>
+            <button onclick="showPopup('addText')">Add Text</button>
+            <button onclick="showAll()">Show All</button>
+        </div>
+        <div class="content">
+            <!-- Random Test Section -->
+            <div id="random-test-section" class="hidden">
+                <h2>Random Test</h2>
+                <button onclick="startRandomTest()">Start Test</button>
+            </div>
+            <!-- Show All Content -->
+            <div id="show-all-section"></div>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 Pairpal</p>
+    </footer>
+
+    <div class="modal" id="popup">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closePopup()">&times;</span>
+            <div id="popup-body"></div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
