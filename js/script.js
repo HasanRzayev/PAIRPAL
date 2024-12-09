@@ -1,5 +1,20 @@
+// Dictionary object
 let dictionary = {};
 
+// Load dictionary from localStorage on page load
+function loadDictionary() {
+    const storedDictionary = localStorage.getItem("dictionary");
+    if (storedDictionary) {
+        dictionary = JSON.parse(storedDictionary);
+    }
+}
+
+// Save dictionary to localStorage
+function saveDictionary() {
+    localStorage.setItem("dictionary", JSON.stringify(dictionary));
+}
+
+// Show popup for different actions
 function showPopup(action) {
     const popup = document.getElementById("popup");
     const popupBody = document.getElementById("popup-body");
@@ -35,16 +50,19 @@ function showPopup(action) {
     popupBody.innerHTML = content;
 }
 
+// Close the popup
 function closePopup() {
     const popup = document.getElementById("popup");
     popup.style.display = "none";
 }
 
+// Add a key-value pair to the dictionary
 function addKeyValue() {
     const key = document.getElementById("key").value;
     const value = document.getElementById("value").value;
     if (key && value) {
         dictionary[key] = value;
+        saveDictionary(); // Save dictionary to localStorage
         alert(`Added: ${key} -> ${value}`);
     } else {
         alert("Key and value cannot be empty.");
@@ -52,10 +70,12 @@ function addKeyValue() {
     closePopup();
 }
 
+// Remove a key from the dictionary
 function removeKey() {
     const key = document.getElementById("key").value;
     if (dictionary[key]) {
         delete dictionary[key];
+        saveDictionary(); // Save updated dictionary to localStorage
         alert(`Removed: ${key}`);
     } else {
         alert("Key does not exist.");
@@ -63,17 +83,21 @@ function removeKey() {
     closePopup();
 }
 
+// Clear the dictionary
 function clearDictionary() {
     if (confirm("Clear entire dictionary?")) {
         dictionary = {};
+        saveDictionary(); // Save the cleared dictionary to localStorage
         alert("Dictionary cleared.");
     }
 }
 
+// Show a random test
 function showRandomTest() {
     document.getElementById("random-test-section").classList.remove("hidden");
 }
 
+// Start a random test
 function startRandomTest() {
     const keys = Object.keys(dictionary);
     if (!keys.length) {
@@ -89,6 +113,7 @@ function startRandomTest() {
     }
 }
 
+// Add multiple key-value pairs from text input
 function addText() {
     const text = document.getElementById("text").value;
     const lines = text.split("\n");
@@ -97,10 +122,12 @@ function addText() {
         const value = lines[i + 1] || "No value";
         dictionary[key] = value;
     }
+    saveDictionary(); // Save updated dictionary to localStorage
     alert("Text added.");
     closePopup();
 }
 
+// Show all key-value pairs in the dictionary
 function showAll() {
     const showAllSection = document.getElementById("show-all-section");
     showAllSection.innerHTML = Object.keys(dictionary).length
@@ -112,3 +139,6 @@ function showAll() {
         `).join("")
         : "<p>Dictionary is empty.</p>";
 }
+
+// Load the dictionary when the page loads
+window.onload = loadDictionary;
